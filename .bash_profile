@@ -2,6 +2,9 @@
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+# Make the prompt more simple, to only print the cwd
+export PS1='\w \$ '
+
 # Aliases
 alias ll='ls -la'
 
