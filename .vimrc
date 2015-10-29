@@ -6,17 +6,19 @@ set smarttab            "
 set expandtab           " tabs are spaces
 set clipboard=unnamed
 set showcmd             " show command in bottom bar
-set cursorline          " highlight current line
 set wildmenu            " visual autocompletion for command meun
 set showmatch           " show matching [{()}]
 set smartindent         " smart indent
-filetype plugin indent on
-
-set colorcolumn=120      " show vertical line
-
-" Search
+" set cursorline          " highlight current line
+set mouse=a             " allow mouse scroll in iTerm
+set colorcolumn=100     " show vertical line
+set title               " change the title of the terminal
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+
+filetype plugin indent on
+
+highlight ColorColumn ctermbg=7 " color it gray
 
 syntax on               " syntax highlight
 
@@ -30,4 +32,19 @@ let mapleader = "\<Space>"
 
 " Automatically remove trailing whitespaces for certain file types on save
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Map ; to :
+nnoremap ; :
 
