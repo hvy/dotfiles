@@ -9,23 +9,22 @@ set showcmd             " show command in bottom bar
 set wildmenu            " visual autocompletion for command meun
 set showmatch           " show matching [{()}]
 set smartindent         " smart indent
-" set cursorline          " highlight current line
 set mouse=a             " allow mouse scroll in iTerm
 set colorcolumn=100     " show vertical line
 set title               " change the title of the terminal
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+" set cursorline          " highlight current line
 
 filetype plugin indent on
-
-highlight ColorColumn ctermbg=7 " color it gray
-
 syntax on               " syntax highlight
-
+highlight ColorColumn ctermbg=7 " color it gray
 " color jellybeans
 
 " Exit from interstion mode using jk
-inoremap jk <ESC>
+inoremap jk <ESC>l
+inoremap jj <ESC>
+inoremap kk <ESC>
 
 " Remap the leader key to the Space bar
 let mapleader = "\<Space>"
@@ -47,4 +46,5 @@ map <C-l> <C-w>l
 
 " Map ; to :
 nnoremap ; :
+nnoremap : ;
 
