@@ -3,7 +3,7 @@
 CWD=$(pwd)
 
 ### Vim
-echo Setting up Vim...
+echo "Setting up Vim..."
 
 # .vimrc
 if [ -f "$HOME/.vimrc" ]; then
@@ -23,5 +23,5 @@ cd "$HOME/.vim"
 git clone https://github.com/ctrlpvim/ctrlp.vim.git bundle/ctrlp.vim
 cd "$CWD"
 
-echo Done setting up Vim
+echo "Done setting up Vim"
 
