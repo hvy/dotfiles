@@ -1,3 +1,4 @@
+syntax on               " syntax highlight
 set encoding=utf-8
 set number              " show line number
 set tabstop=2           " number of visual spaces per tab
@@ -9,17 +10,16 @@ set showcmd             " show command in bottom bar
 set wildmenu            " visual autocompletion for command meun
 set showmatch           " show matching [{()}]
 set smartindent         " smart indent
+" set cursorline          " highlight current line
 set mouse=a             " allow mouse scroll in iTerm
 set colorcolumn=100     " show vertical line
 set title               " change the title of the terminal
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
-" set cursorline          " highlight current line
 
 filetype plugin indent on
-syntax on               " syntax highlight
+
 highlight ColorColumn ctermbg=7 " color it gray
-" color jellybeans
 
 " Exit from interstion mode using jk
 inoremap jk <ESC>l
@@ -48,3 +48,6 @@ map <C-l> <C-w>l
 nnoremap ; :
 nnoremap : ;
 
+" ctrlp.vim - Open files with ctrl+p
+" http://ctrlpvim.github.io/ctrlp.vim/#installation
+set runtimepath^=~/.vim/bundle/ctrlp.vim
