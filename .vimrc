@@ -2,6 +2,7 @@
 " Currently using:
 "   - Pathogen
 "   - NERD Tree
+"   - CtrP + CtrlPTag (ctags)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader Key
