@@ -1,0 +1,190 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" vimrc
+"
+" Notes
+"   Written for Vim 7.4
+"
+" Plugin
+"   Pathogen
+"   NERD Tree
+"   CtrP + CtrlPTag (ctags)
+"   vim-flake8
+"
+" Plugins to install/configure
+"   symtastic
+"   indentpythonvim
+"   Some plugin to automatically insert closing brackets
+"   Some Python auto completion plugin, e.g. YouCompleteMe
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader Key
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader = "\<Space>"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" General
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set nocompatible
+set title
+set showcmd
+set backspace=2
+set splitbelow          " Always create a new horizontal split below
+set splitright          " Always create a new
+set scrolloff=7         " Minimum margin from the cursor to the top/bottom
+
+" Mouse
+set mouse=a             " Allow mouse scroll in all modes
+
+" Highlights
+set hlsearch            " Highlight matches, also required to highlight unwanted spaces
+set showcmd
+set showmatch
+set colorcolumn=80
+" set cursorcolumnt
+" set cursorline
+
+" Encodings
+set encoding=utf-8
+
+" Line numbers
+set number
+set relativenumber
+
+" Indents
+set tabstop=2
+set shiftwidth=2
+set smarttab
+set expandtab
+set smartindent
+
+" Search
+set incsearch           " search as characters are entered
+
+" Code Folding
+set foldmethod=indent   " Enable code folding
+set foldlevel=99
+
+" Bottom Bar
+set wildmenu
+
+" Clipboard
+set clipboard=unnamed
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Code folding with space
+nnoremap <space> za
+
+" Faster insert mode exiting
+inoremap jk <ESC>l
+inoremap jj <ESC>
+inoremap kk <ESC>
+nnoremap j gj
+nnoremap k gk
+
+" Make colon easier to access since it is used more frequently
+nnoremap ; :
+nnoremap : ;
+
+" Easier split navigation
+map <C-h> <C-w><C-h>
+map <C-j> <C-w><C-j>
+map <C-k> <C-w><C-k>
+map <C-l> <C-w><C-l>
+
+" Move text snippet up and down
+nnoremap - :m+<cr>==
+nnoremap _ :m-2<cr>==
+vnoremap - :m '>+1<cr>gv=gv
+vnoremap _ :m '<-2<cr>gv=gv
+
+" Allow repeated repetitions
+vnoremap . :normal .<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Etc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable syntax highlighting
+syntax on
+
+" Detect filetype and use filetype specific options
+filetype plugin indent on
+
+" Highlight all trailing whitepaces
+highlight EvilWhiteSpace ctermbg=red guibg=dardkred
+autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match EvilWhiteSpace /\s\+$/
+
+" Automatically remove trailing whitespaces on write
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Toggle paste mode. Toggle on when pasting from the system clipboard
+imap <F11> <nop>
+set pastetoggle=<F11>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Plugins
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Pathogen
+execute pathogen#infect()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERD Tree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Toggle the split with leader-e
+nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
+
+" Automatically start NERD Tree
+autocmd vimenter * NERDTree
+
+" Automatically close NERD Tree if it is the only split opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CTags / CtrlPTag
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <leader>. :CtrlPTag<cr>
+" nnoremap <SPACE> <nop>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-flake8
+"
+" Notes
+"   Run the linter with F7
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:flake8_quickfix_height=10
+let g:flake8_show_in_file=1
+" let g:flake8_show_in_gutter=1
+" let g:flake8_quickfix_location="topleft"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-instant-markdown
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" let g:instant_markdown_slow = 1  " Add a delay between each markdown update
+" let g:instant_markdown_autostart = 0
