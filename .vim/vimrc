@@ -136,6 +136,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 imap <F11> <nop>
 set pastetoggle=<F11>
 
+" Automatically set syntax for certain file extensions
+autocmd BufRead,BufNewFile *.vue set filetype=html
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
