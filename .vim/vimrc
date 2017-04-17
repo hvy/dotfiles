@@ -40,6 +40,7 @@ set backspace=2
 set splitbelow          " Always create a new horizontal split below
 set splitright          " Always create a new
 set scrolloff=7         " Minimum margin from the cursor to the top/bottom
+set background=light
 
 " Mouse
 set mouse=a             " Allow mouse scroll in all modes
@@ -77,7 +78,9 @@ set foldlevel=99
 set wildmenu
 
 " Clipboard
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard=unnamed
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -125,8 +128,8 @@ syntax on
 filetype plugin indent on
 
 " Highlight all trailing whitepaces
-highlight EvilWhiteSpace ctermbg=red guibg=dardkred
-autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match EvilWhiteSpace /\s\+$/
+" highlight EvilWhiteSpace ctermbg=red guibg=dardkred
+" autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match EvilWhiteSpace /\s\+$/
 
 " Automatically remove trailing whitespaces on write
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -135,9 +138,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Toggle paste mode. Toggle on when pasting from the system clipboard
 imap <F11> <nop>
 set pastetoggle=<F11>
-
-" Automatically set syntax for certain file extensions
-autocmd BufRead,BufNewFile *.vue set filetype=html
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,6 +162,9 @@ autocmd vimenter * NERDTree
 
 " Automatically close NERD Tree if it is the only split opened
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Do not show certain files in the tree
+let NERDTreeIgnore = ['\.pyc$', '\.aux$']
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
