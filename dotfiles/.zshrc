@@ -122,3 +122,36 @@ source "/Users/hiroyuki/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 # Vim binding in cli
 # set -o vi
 
+export PATH="$HOME/bin:$PATH"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# cuDNN
+export CUDA_ROOT="$HOME/.cudnn/active/cuda"
+export CFLAGS="-I$CUDA_ROOT/include $CFLAGS"
+export LDFLAGS="-L$CUDA_ROOT/lib64 $LDFLAGS"
+export LIBRARY_PATH="$CUDA_ROOT/lib64:$LIBRARY_PATH"
+export LD_LIBRARY_PATH="$CUDA_ROOT/lib64:$LD_LIBRARY_PATH"
+
+# CUDA
+export CUDA_HOME="/usr/local/cuda"
+export PATH="$CUDA_HOME/bin:$PATH"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+# export CPATH="$CUDA_ROOT/include:$CPATH"
+
+# NCCL
+# export CPATH="$HOME/nccl/install/include:$CPATH"
+# export LD_LIBRARY_PATH="$HOME/nccl/install/lib:$LD_LIBRARY_PATH"
+
+export MPLBACKEND=AGG
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+
+alias v='vim'
+alias git='hub'
+
