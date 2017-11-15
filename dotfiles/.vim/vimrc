@@ -20,6 +20,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader Key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,7 +50,7 @@ set mouse=a             " Allow mouse scroll in all modes
 set hlsearch            " Highlight matches, also required to highlight unwanted spaces
 set showcmd
 set showmatch
-set colorcolumn=80
+" set colorcolumn=80
 " set cursorcolumnt
 " set cursorline
 
@@ -71,16 +72,15 @@ set smartindent
 set incsearch           " search as characters are entered
 
 " Code Folding
-set foldmethod=indent   " Enable code folding
-set foldlevel=99
+" set foldmethod=indent   " Enable code folding
+" set foldlevel=99
 
-" Bottom Bar
+" Command line completion
 set wildmenu
+set wildmode=longest:full,full
 
 " Clipboard
-if $TMUX == ''
-  set clipboard=unnamed
-endif
+set clipboard=unnamed
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -136,9 +136,27 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Toggle paste mode. Toggle on when pasting from the system clipboard
-imap <F11> <nop>
-set pastetoggle=<F11>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+" imap <F11> <nop>
+" set pastetoggle=<F11>
+"
 
+" Exit paste mode after pase
+autocmd InsertLeave * set nopaste
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Backup files
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set directory=~/.vim/tmp
+set backupdir=~/.vim/tmp
+set viminfo+=n~/.vim/tmp/viminfo.txt
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
