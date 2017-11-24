@@ -5,6 +5,7 @@
   editor = vim
 [alias]
   alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+  f = fetch
   s = status
   d = diff
   co = checkout
