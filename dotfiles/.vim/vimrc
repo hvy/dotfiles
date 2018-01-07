@@ -218,3 +218,9 @@ let g:flake8_show_in_file=1
 
 " let g:instant_markdown_slow = 1  " Add a delay between each markdown update
 " let g:instant_markdown_autostart = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clang-format
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+command! F ClangFormat

@@ -122,7 +122,7 @@ source "/Users/hiroyuki/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
 # Vim binding in cli
 # set -o vi
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/local/bin:$PATH"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -154,4 +154,3 @@ export LC_CTYPE=en_US.UTF-8
 
 alias v='vim'
 alias git='hub'
-
