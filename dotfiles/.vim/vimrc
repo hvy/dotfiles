@@ -1,16 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" vimrc
-"
-" Notes
-"   Written for Vim 7.4
-"
-" Plugin
-"   Pathogen
-"   NERD Tree
-"   CtrP + CtrlPTag (ctags)
-"   vim-flake8
-"
 " Plugins to install/configure
 "   symtastic
 "   indentpythonvim
@@ -167,6 +156,10 @@ set viminfo+=n~/.vim/tmp/viminfo.txt
 " Plugins
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Pathogen
+" execute pathogen#infect()
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD Tree
