@@ -1,67 +1,47 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Plugins to install/configure
-"   symtastic
-"   indentpythonvim
-"   Some plugin to automatically insert closing brackets
-"   Some Python auto completion plugin, e.g. YouCompleteMe
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader Key
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" leader key is Space
 let mapleader = "\<Space>"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Macros
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Python, print object meta data for debugging purpose
-let @p = 'oimport pyutil as pu; pu.debug.print_object()'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" General
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set nocompatible
+" general
 set title
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 set showcmd
 set backspace=2
 set splitbelow          " Always create a new horizontal split below
 set splitright          " Always create a new
 set scrolloff=7         " Minimum margin from the cursor to the top/bottom
 set background=light
+set fileencodings=utf-8
+
+" line numbers
+set number
+set relativenumber
 
 " Mouse
 set mouse=a             " Allow mouse scroll in all modes
+if exists('$TMUX')  " Support resizing in tmux
+  set ttymouse=xterm2
+endif
 
 " Highlights
 set hlsearch            " Highlight matches, also required to highlight unwanted spaces
 set showcmd
 set showmatch
-" set colorcolumn=80
+set colorcolumn=0
 " set cursorcolumnt
 " set cursorline
+highlight ColorColumn ctermbg=0
 
-" Encodings
+" enconding
 set encoding=utf-8
 
-" Line numbers
-set number
-set relativenumber
-
-" Indents
-set tabstop=2
-set shiftwidth=2
-set smarttab
+" indentations and tabs
 set expandtab
+set shiftwidth=2
 set smartindent
+set smarttab
+set tabstop=2
 
-" Search
+" search
 set incsearch           " search as characters are entered
 
 " Code Folding
@@ -95,10 +75,10 @@ nnoremap ; :
 nnoremap : ;
 
 " Easier split navigation
-map <C-h> <C-w><C-h>
-map <C-j> <C-w><C-j>
-map <C-k> <C-w><C-k>
-map <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 
 " Move text snippet up and down
 nnoremap - :m+<cr>==
@@ -140,7 +120,6 @@ set showmode
 autocmd InsertLeave * set nopaste
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Backup files
@@ -150,42 +129,6 @@ autocmd InsertLeave * set nopaste
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 set viminfo+=n~/.vim/tmp/viminfo.txt
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Plugins
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Pathogen
-" execute pathogen#infect()
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERD Tree
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Toggle the split with leader-e
-nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
-
-" Automatically start NERD Tree
-autocmd vimenter * NERDTree
-
-" Automatically close NERD Tree if it is the only split opened
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Do not show certain files in the tree
-let NERDTreeIgnore = ['\.pyc$', '\.aux$']
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CTags / CtrlPTag
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-nnoremap <leader>. :CtrlPTag<cr>
-" nnoremap <SPACE> <nop>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-flake8
@@ -207,18 +150,5 @@ let g:flake8_show_in_file=1
 " let g:instant_markdown_slow = 1  " Add a delay between each markdown update
 " let g:instant_markdown_autostart = 0
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-plug
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-"Plug 'lambdalisue/vim-pyenv'
-"  Plug 'davidhalter/jedi-vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'kien/ctrlp.vim'
-
-call plug#end()
+source ~/.vim/abbrev.vim
+source ~/.vim/plugins.vim
