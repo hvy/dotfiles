@@ -5,6 +5,7 @@ Plug 'kien/ctrlp.vim'
 "Plug 'lambdalisue/vim-pyenv'
 "  Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tell-k/vim-autopep8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
@@ -13,7 +14,9 @@ call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " ctrlp
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -26,7 +29,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>e :NERDTreeToggle<CR>
 
 " automatically start NERD Tree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 " automatically close NERD Tree if it is the only split opened
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -40,10 +43,18 @@ let NERDTreeIgnore = ['\.pyc$', '\.aux$']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " officially recommended configs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_checkers = ['flake8']
+"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline, airline-theme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:airline_theme='deus'
