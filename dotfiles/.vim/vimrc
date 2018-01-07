@@ -55,6 +55,9 @@ set wildmode=longest:full,full
 " Clipboard
 set clipboard=unnamed
 
+" vertical split bar to include a whitespace instead of a pipe
+set fillchars-=vert:\| | set fillchars+=vert:\
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
