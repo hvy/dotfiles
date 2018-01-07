@@ -1,16 +1,7 @@
 # dotfile
 
-A collection of my dotfiles and other environment related files.
+A collection of dotfiles and other environment related files.
 
-### Bash
-
-Mostly aliases for quick navigation.
-
-### Vim
-
-#### Plugins
-
-- Pathogen
-- NERD Tree
-- CtrlP + CtrlPTag (ctags)
-
+- [vim-plug](https://github.com/junegunn/vim-plug)
+- [pyenv](https://github.com/pyenv/pyenv), [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+- [tpm](https://github.com/tmux-plugins/tpm)
