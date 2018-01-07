@@ -32,7 +32,6 @@ let mapleader = "\<Space>"
 " Python, print object meta data for debugging purpose
 let @p = 'oimport pyutil as pu; pu.debug.print_object()'
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,10 +168,6 @@ set viminfo+=n~/.vim/tmp/viminfo.txt
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Pathogen
-execute pathogen#infect()
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD Tree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,3 +213,18 @@ let g:flake8_show_in_file=1
 
 " let g:instant_markdown_slow = 1  " Add a delay between each markdown update
 " let g:instant_markdown_autostart = 0
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+"Plug 'lambdalisue/vim-pyenv'
+"  Plug 'davidhalter/jedi-vim'
+Plug 'christoomey/vim-tmux-navigator'
+
+call plug#end()
