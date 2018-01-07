@@ -219,5 +219,6 @@ Plug 'scrooloose/nerdtree'
 "Plug 'lambdalisue/vim-pyenv'
 "  Plug 'davidhalter/jedi-vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
