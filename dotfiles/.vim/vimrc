@@ -89,9 +89,22 @@ vnoremap _ :m '<-2<cr>gv=gv
 " Allow repeated repetitions
 vnoremap . :normal .<cr>
 
+" quicker indentation
+nnoremap > >>
+nnoremap < <<
+
+" dont loose selection on indenting
+vnoremap > >gv
+vnoremap < <gv"
+
+" navigate to beginning of line, end of line easier
+noremap H ^
+noremap L $
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Etc
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable syntax highlighting
