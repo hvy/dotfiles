@@ -23,7 +23,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-" Mouse
+" mouse
 set mouse=a             " Allow mouse scroll in all modes
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
@@ -191,3 +191,4 @@ command! F ClangFormat
 
 source ~/.vim/abbrev.vim
 source ~/.vim/plugins.vim
+source ~/.vim/functions.vim
