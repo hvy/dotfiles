@@ -1,8 +1,6 @@
 py3 import vim
 
 function! GeneratePythonParseArgs()
-call append(0, 'import argparse')
-
 python3 << EOF
 def to_add_argument_str(key, default):
     key = key.replace('_', '-')
@@ -34,6 +32,7 @@ vim.command('.d')  # delete current line used to generate the args
 vim.command("echo 'Generated parser for {} arguments!'".format(len(ctx)))
 cur = vim.eval("line('.')")
 vim.current.buffer.append(src, int(cur) - 1)
+vim.current.buffer.append('import argparse', 0)
 EOF
 endfunction
 
