@@ -121,6 +121,10 @@ noremap L $
 " toggle absolute and relative line numbers
 nnoremap <leader>r :set relativenumber!<cr>
 
+" easy edit and sourcing of the vimrc
+nnoremap <leader>vv :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Etc
