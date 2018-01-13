@@ -115,10 +115,11 @@ noremap L $
 nnoremap <leader>r :set relativenumber!<cr>
 
 " easy edit and sourcing of the vimrc
-nnoremap <leader>vv :source $MYVIMRC<cr>
-nnoremap <leader>vr :vsplit $MYVIMRC<cr>
+nnoremap <leader>vr :source $MYVIMRC<cr>
+nnoremap <leader>vv :vsplit $MYVIMRC<cr>
 nnoremap <leader>va :vsplit ~/.vim/abbrev.vim<cr>
 nnoremap <leader>vf :vsplit ~/.vim/functions.vim<cr>
+nnoremap <leader>vp :vsplit ~/.vim/plugins.vim<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
