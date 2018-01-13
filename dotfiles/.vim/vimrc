@@ -16,13 +16,6 @@ set fileencodings=utf-8
 set number
 set relativenumber
 
-" relative number only for current buffer
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
 " mouse
 set mouse=a             " Allow mouse scroll in all modes
 if exists('$TMUX')  " Support resizing in tmux
@@ -122,8 +115,8 @@ noremap L $
 nnoremap <leader>r :set relativenumber!<cr>
 
 " easy edit and sourcing of the vimrc
-nnoremap <leader>vr :source $MYVIMRC<cr>
-nnoremap <leader>vv :vsplit $MYVIMRC<cr>
+nnoremap <leader>vv :source $MYVIMRC<cr>
+nnoremap <leader>vr :vsplit $MYVIMRC<cr>
 nnoremap <leader>va :vsplit ~/.vim/abbrev.vim<cr>
 nnoremap <leader>vf :vsplit ~/.vim/functions.vim<cr>
 
@@ -143,9 +136,20 @@ filetype plugin indent on
 " highlight EvilWhiteSpace ctermbg=red guibg=dardkred
 " autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match EvilWhiteSpace /\s\+$/
 
+" relative number only for current buffer
+augroup number_toggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+
 " Automatically remove trailing whitespaces on write
-autocmd BufWritePre *.py :%s/\s\+$//e
-autocmd BufWritePre * :%s/\s\+$//e
+augroup remove_trailing_whitespace_on_write
+  autocmd!
+  autocmd BufWritePre *.py :%s/\s\+$//e
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 
 " Toggle paste mode. Toggle on when pasting from the system clipboard
 nnoremap <F2> :set invpaste paste?<CR>
@@ -156,7 +160,10 @@ set showmode
 "
 
 " Exit paste mode after pase
-autocmd InsertLeave * set nopaste
+augroup exit_paste_mode_after_pase
+  autocmd!
+  autocmd InsertLeave * set nopaste
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
