@@ -3,6 +3,7 @@
 " general
 iabbrev teh the
 iabbrev chianer chainer
+iabbrev chaiern chainer
 
 " c++
 iabbrev scout std::cout << std::endl;
