@@ -6,6 +6,7 @@ Plug 'kien/ctrlp.vim'
 "Plug 'lambdalisue/vim-pyenv'
 "  Plug 'davidhalter/jedi-vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tell-k/vim-autopep8'
 Plug 'vim-airline/vim-airline'
@@ -16,12 +17,24 @@ call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+" rust-lang
+"
+" Includes RustFmt which depends on
+" https://crates.io/crates/rustfmt-nightly
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+command! R RustFmt
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " ctrlp
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>t :CtrlPTag<cr>
+nnoremap <C-t> :CtrlPTag<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
