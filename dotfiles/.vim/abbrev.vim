@@ -6,6 +6,7 @@ iabbrev chianer chainer
 iabbrev chaiern chainer
 
 " c++
+iabbrev cosnt const
 iabbrev scout std::cout << std::endl;
 iabbrev scout1 std::cout << "" << std::endl;
 iabbrev scout2 std::cout << "" << "" << std::endl;
