@@ -4,13 +4,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 "Plug 'lambdalisue/vim-pyenv'
 "  Plug 'davidhalter/jedi-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tell-k/vim-autopep8'
+Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
@@ -29,6 +30,8 @@ nnoremap <Leader>F :Files<CR>
 nnoremap <Leader>l :BLines<CR>
 nnoremap <Leader>L :Lines<CR>
 nnoremap <Leader>' :Marks<CR>
+nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>T :Tags<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -48,8 +51,8 @@ command! R RustFmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
-nnoremap <leader>t :CtrlPTag<cr>
-nnoremap <C-t> :CtrlPTag<cr>
+" nnoremap <leader>t :CtrlPTag<cr>
+" nnoremap <C-t> :CtrlPTag<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
