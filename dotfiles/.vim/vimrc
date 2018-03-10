@@ -138,11 +138,11 @@ filetype plugin indent on
 " autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match EvilWhiteSpace /\s\+$/
 
 " relative number only for current buffer
-augroup number_toggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" augroup number_toggle
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
 
 
 " Automatically remove trailing whitespaces on write
