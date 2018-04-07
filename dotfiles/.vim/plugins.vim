@@ -15,6 +15,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
