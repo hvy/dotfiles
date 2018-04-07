@@ -1,6 +1,10 @@
 " leader key is Space
 let mapleader = "\<Space>"
 
+" man highlight
+" hi Comment gui=underline
+
+
 " general
 set title
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -9,7 +13,7 @@ set backspace=2
 set splitbelow          " Always create a new horizontal split below
 set splitright          " Always create a new
 set scrolloff=7         " Minimum margin from the cursor to the top/bottom
-set background=light
+" set background=light
 set fileencodings=utf-8
 
 " line numbers
@@ -19,17 +23,19 @@ set relativenumber
 " mouse
 set mouse=a             " Allow mouse scroll in all modes
 if exists('$TMUX')  " Support resizing in tmux
-  set ttymouse=xterm2
+    if !has('nvim')
+        set ttymouse=xterm2
+    endif
 endif
 
 " Highlights
 set hlsearch            " Highlight matches, also required to highlight unwanted spaces
 set showcmd
 set showmatch
-set colorcolumn=0
+" set colorcolumn=0
 " set cursorcolumnt
 " set cursorline
-highlight ColorColumn ctermbg=0
+" highlight ColorColumn ctermbg=0
 
 " enconding
 set encoding=utf-8
@@ -110,6 +116,8 @@ vnoremap < <gv"
 " navigate to beginning of line, end of line easier
 noremap H ^
 noremap L $
+noremap J 5j
+noremap K 5k
 
 " toggle absolute and relative line numbers
 nnoremap <leader>r :set relativenumber!<cr>
@@ -131,7 +139,7 @@ nnoremap <leader>vp :vsplit ~/.vim/plugins.vim<cr>
 syntax on
 
 " Detect filetype and use filetype specific options
-filetype plugin indent on
+" filetype plugin indent on
 
 " Highlight all trailing whitepaces
 " highlight EvilWhiteSpace ctermbg=red guibg=dardkred
@@ -175,7 +183,9 @@ augroup END
 
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
-set viminfo+=n~/.vim/tmp/viminfo.txt
+if !has('nvim')
+    set viminfo+=n~/.vim/tmp/viminfo
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-flake8
@@ -206,3 +216,23 @@ command! F ClangFormat
 source ~/.vim/abbrev.vim
 source ~/.vim/plugins.vim
 source ~/.vim/functions.vim
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" highlight
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+hi Statement ctermfg=Yellow
+hi LineNr ctermfg=Blue
+hi CursorLineNr ctermfg=Blue
+hi Search cterm=standout ctermbg=NONE ctermfg=NONE
+hi Visual cterm=standout ctermbg=NONE ctermfg=NONE
