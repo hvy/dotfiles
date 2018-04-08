@@ -54,6 +54,7 @@ nnoremap <Leader>T :Tags<CR>
 
 let g:fzf_buffers_jump = 1
 let g:fzf_tags_command = 'ctags -R'
+let g:fzf_layout = { 'down': '~100%' }
 
 if has('nvim')
     let g:fzf_layout = { 'window': 'enew' }
