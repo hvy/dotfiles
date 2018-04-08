@@ -102,9 +102,8 @@ augroup remove_trailing_whitespace_on_write
 augroup END
 
 " Toggle paste mode. Toggle on when pasting from the system clipboard
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-set showmode
+nnoremap <leader>p :set invpaste paste?<cr>
+set pastetoggle=<leader>p
 
 " Exit paste mode after pase
 augroup exit_paste_mode_after_pase
