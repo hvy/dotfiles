@@ -1,88 +1,46 @@
-" leader key is Space
 let mapleader = "\<Space>"
 
-" man highlight
-" hi Comment gui=underline
+syntax on
+filetype plugin indent on
 
-
-" general
 set title
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set showcmd
-set backspace=2
-set splitbelow          " Always create a new horizontal split below
-set splitright          " Always create a new
-set scrolloff=7         " Minimum margin from the cursor to the top/bottom
-" set background=light
-set fileencodings=utf-8
-
-" line numbers
 set number
 set relativenumber
-
-" mouse
-set mouse=a             " Allow mouse scroll in all modes
-if exists('$TMUX')  " Support resizing in tmux
-    if !has('nvim')
-        set ttymouse=xterm2
-    endif
-endif
-
-" Highlights
-set hlsearch            " Highlight matches, also required to highlight unwanted spaces
+set clipboard=unnamed
+set mouse=a
 set showcmd
-set showmatch
-" set colorcolumn=0
-" set cursorcolumnt
-" set cursorline
-" highlight ColorColumn ctermbg=0
-
-" enconding
-set encoding=utf-8
-
-" indentations and tabs
+set backspace=2
 set expandtab
-set shiftwidth=2
 set smartindent
 set smarttab
-set tabstop=2
-
-" search
-set incsearch           " search as characters are entered
-
-" Code Folding
-" set foldmethod=indent   " Enable code folding
-" set foldlevel=99
-
-" Command line completion
+set tabstop=4
+set shiftwidth=4
+set scrolloff=5
 set wildmenu
 set wildmode=longest:full,full
+set splitbelow
+set splitright
+set hlsearch
+set showcmd
+set showmatch
+set incsearch
+set encoding=utf-8
+set fileencodings=utf-8
 
-" Clipboard
-set clipboard=unnamed
-
-" vertical split bar to include a whitespace instead of a pipe
-"set fillchars=vert:\|
+" Vertical split bar to include a whitespace instead of a pipe
 set fillchars=vert:\│
 
-" no vertical split line background color (only fillchar)
-" highlight VertSplit cterm=NONE
-
-" set fillchars-=vert:\| | set fillchars=vert:\
-" set fillchars=vert:\
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Code folding with space
-nnoremap <space> za
+" Backup files
+set directory=~/.vim/tmp
+set backupdir=~/.vim/tmp
+if !has('nvim')
+    set viminfo+=n~/.vim/tmp/viminfo
+endif
 
 " Faster insert mode exiting
-inoremap jk <ESC>l
-inoremap jj <ESC>
-inoremap kk <ESC>
+inoremap jk <esc>l
+inoremap jj <esc>
+inoremap kk <esc>
 nnoremap j gj
 nnoremap k gk
 
@@ -105,24 +63,24 @@ vnoremap _ :m '<-2<cr>gv=gv
 " Allow repeated repetitions
 vnoremap . :normal .<cr>
 
-" quicker indentation
+" Quicker indentation
 nnoremap > >>
 nnoremap < <<
 
-" dont loose selection on indenting
+" Do not loose selection on indenting
 vnoremap > >gv
 vnoremap < <gv"
 
-" navigate to beginning of line, end of line easier
+" Navigate to beginning of line, end of line easier
 noremap H ^
 noremap L $
 noremap J 5j
 noremap K 5k
 
-" toggle absolute and relative line numbers
+" Toggle absolute and relative line numbers
 nnoremap <leader>r :set relativenumber!<cr>
 
-" easy edit and sourcing of the vimrc
+" Easy edit and sourcing of the vimrc
 nnoremap <leader>vr :source $MYVIMRC<cr>
 nnoremap <leader>vv :vsplit $MYVIMRC<cr>
 nnoremap <leader>va :vsplit ~/.vim/abbrev.vim<cr>
@@ -130,27 +88,10 @@ nnoremap <leader>vf :vsplit ~/.vim/functions.vim<cr>
 nnoremap <leader>vp :vsplit ~/.vim/plugins.vim<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Etc
-
+"
+" Misc
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Enable syntax highlighting
-syntax on
-
-" Detect filetype and use filetype specific options
-" filetype plugin indent on
-
-" Highlight all trailing whitepaces
-" highlight EvilWhiteSpace ctermbg=red guibg=dardkred
-" autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match EvilWhiteSpace /\s\+$/
-
-" relative number only for current buffer
-" augroup number_toggle
-"   autocmd!
-"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-" augroup END
 
 
 " Automatically remove trailing whitespaces on write
@@ -164,9 +105,6 @@ augroup END
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
-" imap <F11> <nop>
-" set pastetoggle=<F11>
-"
 
 " Exit paste mode after pase
 augroup exit_paste_mode_after_pase
@@ -174,65 +112,49 @@ augroup exit_paste_mode_after_pase
   autocmd InsertLeave * set nopaste
 augroup END
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Backup files
+" Tmux, Nvim
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set directory=~/.vim/tmp
-set backupdir=~/.vim/tmp
-if !has('nvim')
-    set viminfo+=n~/.vim/tmp/viminfo
+if exists('$TMUX')  " Support resizing in tmux
+    if !has('nvim')
+        set ttymouse=xterm2
+    endif
 endif
 
+if exists(':tnoremap')
+    " Exit insert mode
+    tnoremap <silent> <esc> <C-\><C-n>
+endif
+
+" if has('nvim')
+"     let g:python_host_prog = '$HOME/.pyenv/shims/python'
+"     let g:python3_host_prog = '/Users/hiroyuki/.pyenv/shims/python3'
+" endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-flake8
 "
-" Notes
-"   Run the linter with F7
+" Additional Alacritty colors with Oceanic Next theme
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:flake8_quickfix_height=10
-let g:flake8_show_in_file=1
-" let g:flake8_show_in_gutter=1
-" let g:flake8_quickfix_location="topleft"
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-instant-markdown
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:instant_markdown_slow = 1  " Add a delay between each markdown update
-" let g:instant_markdown_autostart = 0
+hi Statement ctermfg=Yellow
+hi LineNr ctermfg=black
+hi CursorLineNr ctermfg=black
+hi Search cterm=standout ctermbg=NONE ctermfg=NONE
+hi Visual cterm=NONE ctermbg=black ctermfg=NONE
+hi StatusLine cterm=NONE ctermbg=black ctermfg=gray
+hi StatusLineNC cterm=NONE ctermbg=black ctermfg=gray
+hi VertSplit cterm=NONE ctermbg=black ctermfg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" clang-format
+"
+" Source other Vim configuration files
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-command! F ClangFormat
 
 source ~/.vim/abbrev.vim
 source ~/.vim/plugins.vim
 source ~/.vim/functions.vim
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if exists(':tnoremap')
-    tnoremap <Esc> <C-\><C-n>
-endif
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" highlight
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-hi Statement ctermfg=Yellow
-hi LineNr ctermfg=Blue
-hi CursorLineNr ctermfg=Blue
-hi Search cterm=standout ctermbg=NONE ctermfg=NONE
-hi Visual cterm=standout ctermbg=NONE ctermfg=NONE
