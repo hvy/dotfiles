@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'ap/vim-css-color'
+Plug 'Yggdroot/indentLine'
 " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -131,3 +132,11 @@ let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': [], 'passive_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 command! F ClangFormat
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" indentLine
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:indentLine_color_term = 'black'
