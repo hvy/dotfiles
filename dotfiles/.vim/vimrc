@@ -5,6 +5,7 @@ filetype plugin indent on
 
 set title
 set number
+set showtabline=2
 set relativenumber
 set clipboard=unnamed
 set mouse=a
@@ -26,6 +27,7 @@ set showmatch
 set incsearch
 set encoding=utf-8
 set fileencodings=utf-8
+set updatetime=100  " For fast vim-gitgutter refresh
 
 " Vertical split bar to include a whitespace instead of a pipe
 set fillchars=vert:\│
@@ -139,14 +141,18 @@ endif
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-hi Statement ctermfg=Yellow
-hi LineNr ctermfg=black
-hi CursorLineNr ctermfg=black
-hi Search cterm=standout ctermbg=NONE ctermfg=NONE
-hi Visual cterm=NONE ctermbg=black ctermfg=NONE
-hi StatusLine cterm=NONE ctermbg=black ctermfg=gray
-hi StatusLineNC cterm=NONE ctermbg=black ctermfg=gray
-hi VertSplit cterm=NONE ctermbg=black ctermfg=black
+" hi Statement ctermfg=Yellow
+" hi LineNr ctermfg=black
+" hi CursorLineNr ctermfg=black
+" hi Search cterm=standout ctermbg=yellow ctermfg=black
+" hi Visual cterm=NONE ctermbg=black ctermfg=NONE
+" hi StatusLine cterm=NONE ctermbg=black ctermfg=gray
+" hi StatusLineNC cterm=NONE ctermbg=black ctermfg=gray
+" hi VertSplit cterm=NONE ctermbg=black ctermfg=black
+" hi TabLine cterm=None ctermfg=White ctermbg=Black
+" hi TabLineFill cterm=None ctermfg=Black ctermbg=Black
+" hi TabLineSel cterm=bold ctermfg=Yellow ctermbg=Black
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
