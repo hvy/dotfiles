@@ -89,6 +89,11 @@ nnoremap <leader>va :vsplit ~/.vim/abbrev.vim<cr>
 nnoremap <leader>vf :vsplit ~/.vim/functions.vim<cr>
 nnoremap <leader>vp :vsplit ~/.vim/plugins.vim<cr>
 
+" Resize window split
+nnoremap <silent> - :vertical resize -5<cr>
+nnoremap <silent> + :vertical resize +5<cr>
+nnoremap <silent> = <C-w>=
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Misc
@@ -152,7 +157,23 @@ endif
 " hi TabLine cterm=None ctermfg=White ctermbg=Black
 " hi TabLineFill cterm=None ctermfg=Black ctermbg=Black
 " hi TabLineSel cterm=bold ctermfg=Yellow ctermbg=Black
-
+hi ColorColumn ctermbg=black
+hi Statement ctermfg=Yellow
+" hi LineNr ctermfg=black
+hi LineNr ctermfg=green
+" hi CursorLineNr ctermfg=black
+hi CursorLineNr ctermfg=green
+hi Search cterm=standout ctermbg=NONE ctermfg=NONE
+hi Visual cterm=NONE ctermbg=black ctermfg=NONE
+hi StatusLine cterm=NONE ctermbg=black ctermfg=gray
+hi StatusLineNC cterm=NONE ctermbg=black ctermfg=gray
+hi VertSplit cterm=NONE ctermbg=black ctermfg=black
+hi SpellBad cterm=None ctermbg=red ctermfg=white
+" hi TabLineFill ctermfg=Green ctermbg=Green
+hi TabLineFill guifg=Green guibg=green ctermfg=black ctermbg=green
+hi TabLineSel cterm=standout ctermfg=black ctermbg=green
+hi TabLine ctermfg=black ctermbg=green
+hi Title ctermfg=black ctermbg=green
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
