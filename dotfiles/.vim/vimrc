@@ -94,6 +94,12 @@ nnoremap <silent> - :vertical resize -5<cr>
 nnoremap <silent> + :vertical resize +5<cr>
 nnoremap <silent> = <C-w>=
 
+" Jump between tabs
+nnoremap th :tabfirst<cr>
+nnoremap tk :tabprev<cr>
+nnoremap tj :tabnext<cr>
+nnoremap tl :tablast<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Misc
@@ -157,14 +163,15 @@ endif
 " hi TabLine cterm=None ctermfg=White ctermbg=Black
 " hi TabLineFill cterm=None ctermfg=Black ctermbg=Black
 " hi TabLineSel cterm=bold ctermfg=Yellow ctermbg=Black
-hi ColorColumn ctermbg=black
+hi ColorColumn cterm=standout ctermbg=red ctermfg=green
 hi Statement ctermfg=Yellow
 " hi LineNr ctermfg=black
 hi LineNr ctermfg=green
 " hi CursorLineNr ctermfg=black
 hi CursorLineNr ctermfg=green
 hi Search cterm=standout ctermbg=NONE ctermfg=NONE
-hi Visual cterm=NONE ctermbg=black ctermfg=NONE
+"hi Visual cterm=NONE ctermbg=black ctermfg=NONE
+hi Visual cterm=standout ctermbg=NONE ctermfg=NONE
 hi StatusLine cterm=NONE ctermbg=black ctermfg=gray
 hi StatusLineNC cterm=NONE ctermbg=black ctermfg=gray
 hi VertSplit cterm=NONE ctermbg=black ctermfg=black

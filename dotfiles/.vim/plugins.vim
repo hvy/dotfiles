@@ -20,7 +20,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
 " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -103,6 +103,7 @@ command! R RustFmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <silent> <Leader>e :NERDTreeToggle<cr>
+nnoremap <silent> <Leader>w :NERDTreeFind<cr>
 
 " automatically start NERD Tree
 " autocmd vimenter * NERDTree
@@ -122,9 +123,9 @@ let NERDTreeIgnore = ['\.pyc$', '\.aux$']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " officially recommended configs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
@@ -192,4 +193,4 @@ command! F ClangFormat
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:indentLine_color_term = 'black'
+let g:indentLine_color_term = 'gray'
